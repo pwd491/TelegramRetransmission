@@ -20,7 +20,7 @@ def streaming() -> None:
         "-i", "source/file.mp4",
         "-c:v", "libx264",
         "-preset", "medium", 
-        "-b:v", "6000k",
+        "-b:v", "3000k",
         "-maxrate", "3000k",
         "-bufsize", "6000k",
         "-vf", "scale=1920:-1, format=yuv420p",
@@ -42,7 +42,7 @@ def streaming() -> None:
             RTMP_SERVER  + RTMP_KEY
         ), stdin=converter.stdout) as stream:
             processes.append(stream)
-
+            print("Процессы: ", processes)
 
 if __name__ == '__main__':
     try:
